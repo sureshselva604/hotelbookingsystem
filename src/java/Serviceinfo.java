@@ -100,21 +100,16 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else if(locationrepo.existsById(location.getLocationId()) && locationrepo.existsByPinCode(location.getPinCode()))
 		{
-	        throw new IllegalStateException("Duplicate Exists or Details");
+			result="Duplicate Exsits of Records";
 		}
 		else
 		{
-	        throw new IllegalStateException("Location Details Cannot be Null");
+			result="Location Details cannot be Null";
 		}
 		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
-		}
-		catch (Exception e) {
+		catch (DataAccessException e) {
 	        e.printStackTrace();
-	        throw new IllegalStateException("An error occurred while adding the location");
+	        result = "An error occurred while adding the location";
 	    }
 		return result;
 	}
@@ -130,13 +125,8 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else
 		{
-	        throw new IllegalStateException("Hotel Details Cannot be Null");
+			result="Hotel Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -157,13 +147,8 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else
 		{
-	        throw new IllegalStateException("Hotel Details Cannot be Null");
+			result="Rooms Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -183,13 +168,8 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else
 		{
-	        throw new IllegalStateException("Room facilities Cannot be Null");
+			result="RoomsFacilities Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -209,15 +189,9 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else
 		{
-	        throw new IllegalStateException("Hotel facilities Cannot be Null");
+			result="Hotel Facilities cannot be Null";
 		}
 		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
-		}
-
 		catch (DataAccessException e) {
 	        e.printStackTrace();
 	        result = "An error occurred while adding the hotel Facilities";
@@ -240,18 +214,13 @@ public class Serviceinfo implements ServiceInterface {
 			}
 			else
 			{
-		        throw new IllegalStateException("Provide the correct CheckIn Date and CheckOut Date");
+				     result="provide the correct checkIndate and CheckOutDate";
 			}
 		}
 		else
 		{
-	        throw new IllegalStateException("Booking Details Cannot be Null");
+			result="Booking Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -273,13 +242,8 @@ public class Serviceinfo implements ServiceInterface {
 		}
 		else
 		{
-	        throw new IllegalStateException("Booking Details Cannot be Null");
+			result="Discount Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -291,6 +255,9 @@ public class Serviceinfo implements ServiceInterface {
 	@Override
 	public String createroombookingdetails(RoomBooking roombooking) {
 		
+		System.out.println(roombooking.getBookingId());
+		System.out.println(roombooking.getRoomId());
+		System.out.println(roombooking.isActiveStatus());
 		
 		String result=null;
 		try
@@ -310,24 +277,19 @@ public class Serviceinfo implements ServiceInterface {
 			      }
 			    else
 			     {
-			        throw new IllegalStateException("Already Has been Allocated");
+				        result="Already the room has been allocated to somebody";
 			      }
 			
 			}
 			else
 			{
-		        throw new IllegalStateException("Provided Details not found in the databse");
+				result="Provided Details not founded in the database";
 			}
 		}
 		else
 		{
-	        throw new IllegalStateException("Booking Details Cannot be null");
+			result="RoomBooking Details cannot be Null";
 		}
-		}
-		catch(IllegalStateException e)
-		{
-			e.printStackTrace();
-			throw e;
 		}
 		catch (DataAccessException e) {
 	        e.printStackTrace();
@@ -537,19 +499,13 @@ public class Serviceinfo implements ServiceInterface {
 			}
 			else
 			{
-                throw new IllegalArgumentException("There is no such Booking Details");   
+				message="There is no such Booking Details";
 			}
 		return ResponseEntity.ok(message);
 		}
-		catch(IllegalArgumentException e)
-	     {
-		   e.printStackTrace();
-	       throw e;  
-	     }
 		catch (Exception e) {
-			
-	        throw new IllegalStateException("An error occurred while processing the Bill request.");
-
+	                e.printStackTrace();
+	               return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred while updating bill details.");
 	    }
 	}
 	
@@ -578,14 +534,14 @@ public class Serviceinfo implements ServiceInterface {
 		      {
 		          if (cancellationRepo.existsByBookingId(cancell.getBookingId())) 
 		             {
-		                throw new IllegalArgumentException("Already Cancelled or Exists.");   
+		               message = "Already Cancelled";
 		              } 
-		           else 
-		             {
+		         else 
+		            {
 		                   cancellationRepo.save(cancell);
 		          
 		                // Retrieve the Cancellation object after saving it...
-		                 Cancellation cancellations = cancellationRepo.findByBookingIdBookingId(cancell.getBookingId().getBookingId());
+		                   Cancellation cancellations = cancellationRepo.findByBookingIdBookingId(cancell.getBookingId().getBookingId());
 
 		                 cancellations.setCancellationDate(LocalDateTime.now());
 		                 cancellationRepo.save(cancellations);
@@ -601,9 +557,8 @@ public class Serviceinfo implements ServiceInterface {
 		                }
 		               else 
 		               {
-		                    cancell.setCancellationCharges(0.0);
-			                cancellationRepo.save(cancellations);
-			                throw new IllegalArgumentException("Cancellation is not allowed.");   
+		                  cancell.setCancellationCharges(0.0);
+		                  message = "Cancellation time is over";      
 		                }
 		                  cancellationRepo.save(cancellations);
 		            
@@ -611,30 +566,26 @@ public class Serviceinfo implements ServiceInterface {
 		      }
 		      else
 		      {
-	                throw new IllegalArgumentException("There is no such booking details.");   
+		    	      message="There is no such booking Details are founded";
 		      }
 		              return ResponseEntity.ok(message);
 		    } 
-	   catch(IllegalArgumentException e)
-	     {
-		   e.printStackTrace();
-	       throw e;  
-	     }
 	   catch (Exception e) 
 	   {
-	        throw new IllegalStateException("An error occurred while processing the Cancellation request.");
-
-	   }
+		        e.printStackTrace();
+		        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+		                .body("An error occurred while processing the cancellation request.");
+	    }
 	}
 	
 @Override
-public ResponseEntity<List<Payment>> updatePaymentDetails(Payment payment) {
+public ResponseEntity<String> updatePaymentDetails(Payment payment) {
 	try {
 	String message="";
-	List<Payment> payments = null;
+	System.out.println(payment.getBillId());
 	if (paymentrepo.existsByBillId(payment.getBillId())) 
     {
-        throw new IllegalArgumentException("Payment already exists or has been paid.");   
+          message = "Already Exists Or Paid";
     } 
 	else
 	{
@@ -642,12 +593,10 @@ public ResponseEntity<List<Payment>> updatePaymentDetails(Payment payment) {
 		System.out.println(bill);
 		if(bill.isPresent())
 		{
-			Bill bills = bill.get();
 		   payment.setPaymentDate(LocalDateTime.now());
-		   payment.setPaymentAmount(bills.getAmountToBePaid());
+		   payment.setPaymentAmount(bill.get().getAmountToBePaid());
 		   payment.setPaymentMethod(payment.getPaymentMethod());
 		   payment.setPaymentStatus(payment.getPaymentStatus());
-		   payment.setBillId(bills);
 		   paymentrepo.save(payment);
 		   if(payment.getPaymentStatus().equalsIgnoreCase("Paid"))
 		   {
@@ -658,32 +607,26 @@ public ResponseEntity<List<Payment>> updatePaymentDetails(Payment payment) {
                   Room room = roomrepo.findById(roomBooking.getRoomId().getRoomId()).orElseThrow(() -> new RuntimeException("Room not found"));
                   room.setStatus("Booked");
                   roomrepo.save(room);
-           });
-           payments = paymentrepo.findByBillId(payment.getBillId());		   
-           }
-		   else
-		   {
-	            throw new IllegalStateException("UnSucessfull Payment.");		
-	       }
-		   
-		  }
+            
+
+        });
+		   }
+		message="Successfully Paid";
+		}
 		else
 		{
-            throw new IllegalStateException("There is no such bill details.");		
+			message="There is no such Bill details found";
+		}
 
-		}
-		}
-		
-	return ResponseEntity.ok(payments);
 	}
-    catch (IllegalArgumentException | IllegalStateException e) {
-       e.printStackTrace();
-       throw e;
-     }
+	return ResponseEntity.ok(message);
+	}
 	catch (Exception e) 
 	   {
-        throw new IllegalStateException("An error occurred while processing the payment request.");
-	   }
+		        e.printStackTrace();
+		        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+		                .body("An error occurred while processing the payment request.");
+	    }
 }
 
 //*****************Edit UserDetails************************
@@ -995,35 +938,26 @@ public String extractUserName(String token)
 
 @Override
 public List<Room> AvailableRoomsForHotelId(Room rooms) {
-	try
+	List<Room>countRoomsForHotelId;
+	Optional<Room>room=roomrepo.existsByHotelId(rooms.getHotelId());
+	if(room.isPresent())
 	{
-	    List<Room>countRoomsForHotelId;
-	    Optional<Room>room=roomrepo.existsByHotelId(rooms.getHotelId());
-	    if(room.isPresent())
-	           {
-		           countRoomsForHotelId=roomrepo.findByHotelId(rooms.getHotelId());
-		            countRoomsForHotelId= countRoomsForHotelId.stream()
-				           .filter(roomss->roomss.getStatus().equalsIgnoreCase("Available"))		
-				           .collect(Collectors.toList());
-	           }
-	    else
-	         {
+		countRoomsForHotelId=roomrepo.findByHotelId(rooms.getHotelId());
+		countRoomsForHotelId= countRoomsForHotelId.stream()
+				.filter(roomss->roomss.getStatus().equalsIgnoreCase("Available"))		
+				.collect(Collectors.toList());
+	}
+	else
+	{
 		countRoomsForHotelId=null;
-	         }
-	return countRoomsForHotelId;
 	}
-	catch (Exception e) {
-		e.printStackTrace();
-        return Collections.emptyList();
-	}
+	return countRoomsForHotelId;	
 }
 
 @Override
 public List<Room> totalRoomsForHotelId(Room rooms) {
-	try
-	{
-	      List<Room>totalRoom;
-	      Optional<Room>totalroom=roomrepo.existsByHotelId(rooms.getHotelId());
+	List<Room>totalRoom=null;
+	Optional<Room>totalroom=roomrepo.existsByHotelId(rooms.getHotelId());
 	if(totalroom.isPresent())
 	{
 	 totalRoom=roomrepo.findByHotelId(rooms.getHotelId());
@@ -1033,18 +967,11 @@ public List<Room> totalRoomsForHotelId(Room rooms) {
 		totalRoom=null;
 	}
 	return totalRoom;
-	}
-	catch (Exception e) {
-		e.printStackTrace();
-        return Collections.emptyList();
-	}
 }
 
 @Override
 public List<roomFacilities> roomFacForRoomId(roomFacilities rooms) {
-	try
-	{
-	   List<roomFacilities>roomfacilities;
+	   List<roomFacilities>roomfacilities=null;
 	   Optional<roomFacilities> roomfac=roomfacrepo.existsByRoomId(rooms.getRoomId());
 	if(roomfac.isPresent())
 	{
@@ -1055,19 +982,11 @@ public List<roomFacilities> roomFacForRoomId(roomFacilities rooms) {
 		roomfacilities=null;
 	}
 	return roomfacilities;
-	}
-	catch (Exception e) {
-		e.printStackTrace();
-        return Collections.emptyList();
-	}
 }
 
 @Override
 public List<HotelFacilities> hotelFacForHotelId(HotelFacilities hotelfac) {
-	try {
-		
-	
-	   List<HotelFacilities> hotelfacilities;
+	   List<HotelFacilities> hotelfacilities=null;
 	   Optional<HotelFacilities>hotelfacId=hotelfacrepo.existsByHotelId(hotelfac.getHotelId());
 	   if(hotelfacId.isPresent())
 	   {
@@ -1078,17 +997,10 @@ public List<HotelFacilities> hotelFacForHotelId(HotelFacilities hotelfac) {
 		  hotelfacilities=null;  
 	   }
 	   return hotelfacilities;
-	}
-	catch (Exception e) {
-		e.printStackTrace();
-        return Collections.emptyList();
-	}
 }
 
 @Override
 public List<Hotels> getHotelsforLocation(Hotels hotels) {
-	try
-	{
 	  List<Hotels>hotelList;
 	  Optional<Hotels>hotellocation= hotelrepo.existsByLocationId(hotels.getLocationId());
 	  if(hotellocation.isPresent())
@@ -1097,21 +1009,14 @@ public List<Hotels> getHotelsforLocation(Hotels hotels) {
 	  }
 	  else
 	  {
-		  hotelList=null;  
+		  hotelList=null;
 	  }
 	  return hotelList;
-	}
-	catch (Exception e) {
-		e.printStackTrace();
-        return Collections.emptyList();
-	}
 	
 }
 
 @Override
 public List<Hotels> getFilterByStarRating(Double starRating) throws IllegalAccessException {
-	try
-	{
 	List<Hotels>hotelsList,result;
 	System.out.println("Star rating:"+starRating);
 	if(starRating<=5.0)
@@ -1128,26 +1033,14 @@ public List<Hotels> getFilterByStarRating(Double starRating) throws IllegalAcces
 
      }
 	return result;
-	}
-	catch(IllegalAccessException e)
-	{
-		e.printStackTrace();
-		throw e;
-	}
-	catch(Exception e)
-	{
-		throw new IllegalAccessException("An error occured while processing the request");
-
-	}
 	
 
 }
 
 @Override
 public List<Hotels> getFilterByUserRating(Double userRating) throws IllegalAccessException {
-	try
-	{
 	List<Hotels>hotelsList,result;
+	System.out.println("Star rating:"+userRating);
 	if(userRating<=10.0)
 	{
 		hotelsList=hotelrepo.findAll();
@@ -1161,28 +1054,15 @@ public List<Hotels> getFilterByUserRating(Double userRating) throws IllegalAcces
 			throw new IllegalAccessException("provide the rating upto 10.0");
         }
 	return result;
-	}
-	catch(IllegalAccessException e)
-	{
-		e.printStackTrace();
-		throw e;
-	}
-	catch(Exception e)
-	{
-		throw new IllegalAccessException("An error occured while processing the request");
-
-	}
 	
 }
 
 @Override
-public List<Room> getFilterByPrice(Double minimumamount, Double maximumamount)  {
-	try
-	{
+public List<Room> getFilterByPrice(Double minimumamount, Double maximumamount) throws IllegalAccessException {
 	List<Room>roomsList,result;
 	if(minimumamount<=0.0)
 	{
-		throw new IllegalStateException("provide the minimum amount greter than 0");
+		throw new IllegalAccessException("provide the minimum amount greter than 0");
 
 	}
 	else
@@ -1194,18 +1074,39 @@ public List<Room> getFilterByPrice(Double minimumamount, Double maximumamount)  
 		
 	}
 	return result;
-	}
-	catch(IllegalStateException e)
-	{
-		e.printStackTrace();
-		throw e;
-	}
-	catch(Exception e)
-	{
-		throw new IllegalStateException("An error occured while processing the request");
+}
 
-	}
+@Override
+public void updateRoomStatuses() {
+	LocalDateTime currentDate = LocalDateTime.now();
+	List<Booking>bookingDetails=bookingrepo.findAll();
+	for(Booking bookdetails:bookingDetails)
+	{
+		if(bookdetails.getCheckOutDate()!=null && currentDate.isAfter(bookdetails.getCheckOutDate()))
+		{
 
+			  getBookingRoomId(bookdetails);
+			  bookdetails.setCheckOutDate(null);
+			  bookingrepo.save(bookdetails);
+		}
+	}
 	
+	
+}
+
+private void getBookingRoomId(Booking bookdetails) {
+        List<RoomBooking>roomBookingDetails=roombookingrepo.findAllBybookingId(bookdetails)	;
+        for(RoomBooking roombookdetails:roomBookingDetails)
+        {
+        	roombookdetails.setActiveStatus(true);
+        	getRoomstatus(roombookdetails.getRoomId().getRoomId());
+        	roombookingrepo.save(roombookdetails);
+        }
+}
+
+private void getRoomstatus(Long roomId) {
+        Optional<Room>roomdetails=roomrepo.findById(roomId);
+        roomdetails.get().setStatus("Available");
+        roomrepo.save(roomdetails.get());
 }
 }
