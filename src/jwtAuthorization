@@ -1,0 +1,77 @@
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.Promise;
+import io.vertx.core.http.HttpServer;
+import io.vertx.core.http.HttpServerRequest;
+import io.vertx.core.json.JsonObject;
+import io.vertx.ext.auth.jwt.JWTAuth;
+import io.vertx.ext.auth.jwt.JWTAuthOptions;
+import io.vertx.ext.web.Router;
+import io.vertx.ext.web.RoutingContext;
+
+public class MainVerticle extends AbstractVerticle {
+
+    private static final String SECRET_KEY = "your-secret-key"; // Replace with your actual secret key
+
+    @Override
+    public void start(Promise<Void> startPromise) {
+        HttpServer server = vertx.createHttpServer();
+        Router router = Router.router(vertx);
+
+        // Create JWTAuth instance
+        JWTAuth jwtAuth = JWTAuth.create(vertx, new JWTAuthOptions()
+                .setJWTOptions(new JWTOptions().setIssuer("your-issuer")));
+
+        // Define a reusable method for token validation
+        router.route("/protected/*").handler(routingContext -> {
+            validateToken(routingContext, jwtAuth);
+        });
+
+        // Define the protected resource route
+        router.get("/protected/resource1").handler(this::handleProtectedResource1);
+        router.get("/protected/resource2").handler(this::handleProtectedResource2);
+
+        server.requestHandler(router).listen(8080, http -> {
+            if (http.succeeded()) {
+                startPromise.complete();
+                System.out.println("HTTP server started on port 8080");
+            } else {
+                startPromise.fail(http.cause());
+            }
+        });
+    }
+
+    private void validateToken(RoutingContext routingContext, JWTAuth jwtAuth) {
+        HttpServerRequest request = routingContext.request();
+        String authorizationHeader = request.getHeader("Authorization");
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer ")) {
+            routingContext.response().setStatusCode(401).end("Unauthorized");
+            return;
+        }
+        String token = authorizationHeader.substring("Bearer ".length());
+        jwtAuth.authenticate(new JsonObject().put("jwt", token), res -> {
+            if (res.succeeded()) {
+                // Token is valid, continue to the next handler
+                routingContext.next();
+            } else {
+                // Token is invalid or expired
+                routingContext.response().setStatusCode(401).end("Unauthorized");
+            }
+        });
+    }
+
+    private void handleProtectedResource1(RoutingContext routingContext) {
+        // Authorized user can access this resource
+        routingContext.response().end("Authorized access to protected resource 1.");
+    }
+
+    private void handleProtectedResource2(RoutingContext routingContext) {
+        // Authorized user can access this resource
+        routingContext.response().end("Authorized access to protected resource 2.");
+    }
+
+    public static void main(String[] args) {
+        Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(new MainVerticle());
+    }
+}
+
