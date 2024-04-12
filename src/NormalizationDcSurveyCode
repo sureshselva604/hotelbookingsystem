@@ -1,0 +1,139 @@
+package com.example.jwt_authentication.Service.surveyjson;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+public class NormalizationDCScoreCalculator {
+    static int totalWeight = 0;
+    static int totalScore=0;
+
+	
+    // Existing Entirely Survey Questions...
+    public static void main(String[] args) {
+        try {
+            // Read JSON data from file
+            String jsonData = readFileAsString("/home/suresh/NormalizationDcFormulaSurvey");
+
+            // Parse JSON data
+            JSONObject jsonDataObject = new JSONObject(jsonData);
+
+            if (jsonDataObject.has("survey")) {
+                JSONObject survey = jsonDataObject.getJSONObject("survey");
+
+                if (survey.has("pages")) {
+                    JSONArray pages = survey.getJSONArray("pages");
+
+                    
+
+                    // Iterate over pages
+                    for (int i = 0; i < pages.length(); i++) {
+                        JSONObject page = pages.getJSONObject(i);
+
+                        if (page.has("elements")) {
+                            JSONArray elements = page.getJSONArray("elements");
+
+                            // Calculate score for each element
+
+                            totalScore += calculateTotalScore(elements);
+                        }
+                    }
+
+                    System.out.println("Total Score: " + totalScore);
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int calculateTotalScore(JSONArray elements) {
+
+        // Iterate over elements
+        for (int i = 0; i < elements.length(); i++) {
+            JSONObject element = elements.getJSONObject(i);
+
+            // Calculate score for each element
+            int elementScore = calculateElementScore(element);
+            //int elementWeight = element.getJSONObject("question").getJSONArray("options").getJSONObject(0).optInt("weight", 0);
+           // totalWeight += elementWeight;
+            System.out.println("Element Sore:"+elementScore);
+        }
+        if (totalWeight != 0) {
+        	
+        	//System.out.println("Total Score is:"+totalScore);
+            // Final value calculation
+            totalScore /= totalWeight;
+        }
+       // System.out.println("Total Weight:"+totalWeight);
+        return totalScore;
+    }
+
+    public static int calculateElementScore(JSONObject element) {
+        int elementScore = 0;
+
+        if (element.has("question")) {
+            JSONObject question = element.getJSONObject("question");
+
+            if (question.has("options")) {
+                JSONArray options = question.getJSONArray("options");
+
+                int minValueOption = Integer.MAX_VALUE;
+                int maxValueOption = Integer.MIN_VALUE;
+
+                // Find min, max, and sum of values
+                for (int j = 0; j < options.length(); j++) {
+                    JSONObject option = options.getJSONObject(j);
+                    int optionValue = option.optInt("score", 0);
+
+
+                    if (optionValue < minValueOption) {
+                    	minValueOption = optionValue;
+                    }
+                    if (optionValue > maxValueOption) {
+                    	maxValueOption = optionValue;
+                    }
+                }
+
+                // Calculate normalized value and question score
+                for (int j = 0; j < options.length(); j++) {
+                    JSONObject option = options.getJSONObject(j);
+                    if(option.getBoolean("isChecked"))
+                    {
+                    //Getting the score value of the selected Responses.
+                    int responsedValue = option.optInt("score", 0);
+                    //System.out.println("Responsed Value:"+responsedValue);
+                    //System.out.println("Minimum Value:"+minValueOption);
+                    //.out.println("Maximum Value:"+maxValueOption);
+                    // Calculating the normalized Value
+                    int normalizedValueOption = ((responsedValue - minValueOption) * 100) / (maxValueOption - minValueOption);
+                   // System.out.println("normalizedOption:"+normalizedValueOption);
+                    // Calculate question score
+                    //System.out.println("Weight:"+option.getInt("weight"));
+                    int questionScore = normalizedValueOption *option.getInt("weight");
+                    //System.out.println("QuestionScore:"+questionScore);
+                    totalWeight+=option.getInt("weight");
+                    elementScore += questionScore;
+                    }
+                }
+            }
+        }
+
+        // Recursively calculate total score for children
+        if (element.has("children")) {
+            JSONArray children = element.getJSONArray("children");
+            elementScore += calculateTotalScore(children);
+        }
+        System.out.println("Element Score:"+elementScore);
+        return elementScore;
+    }
+
+    public static String readFileAsString(String fileName) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(fileName)));
+    }
+}
+
+
