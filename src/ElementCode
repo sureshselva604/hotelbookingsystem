@@ -1,0 +1,72 @@
+package com.example.jwt_authentication.Service.surveyjson;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
+public class SurveyJson {
+	
+	//For Calculating with the Particular Element....
+    public static void main(String[] args) {
+        try {
+            // Read JSON data from file
+            String jsonData = readFileAsString("/home/suresh/Element6");
+
+            // Parse JSON data
+            JSONObject jsonDataObject = new JSONObject(jsonData);
+            
+            // Function to calculate total score
+            int totalScore = calculateTotalScore(jsonDataObject);
+
+            // Print total score
+            System.out.println("Total Score: " + totalScore);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static int calculateTotalScore(JSONObject data) {
+        int totalScore = 0;
+
+        // Check if the element has a question object
+        if (data.has("question")) {
+            JSONObject question = data.getJSONObject("question");
+
+            // Check if the question has options
+            if (question.has("options")) {
+                JSONArray options = question.getJSONArray("options");
+
+                // Iterate through the options array
+                for (int j = 0; j < options.length(); j++) {
+                    JSONObject option = options.getJSONObject(j);
+
+                    // Check if isChecked is true
+                    if (option.getBoolean("isChecked")) {
+                        // Increment score
+                        totalScore += option.optInt("score", 0)*option.optInt("weight",0);
+                    }
+                }
+            }
+        }
+
+        // Get the children array
+        JSONArray children = data.getJSONArray("children");
+
+        // Iterate through the children array
+        for (int i = 0; i < children.length(); i++) {
+            JSONObject child = children.getJSONObject(i);
+
+            // Recursively calculate total score for each child
+            totalScore += calculateTotalScore(child);
+        }
+
+        return totalScore;
+    }
+
+    public static String readFileAsString(String fileName) throws IOException {
+        return new String(Files.readAllBytes(Paths.get(fileName)));
+    }
+}
+
