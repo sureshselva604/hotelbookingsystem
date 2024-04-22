@@ -1,0 +1,42 @@
+Kindly find below the Score object structure. This is a base structure, feel free to add any additional attributes required. For Result Score calculation we will send two params, the Score object meta and Survey Result. The survey result object will also be in the same structure as Scoring Object, but only with selected choices. Use the same Scoring object structure for the Custom Scoring also.
+ 
+Survey
+{
+.....
+.... other survey elements like pages, questions, choices
+.....
+    Scoring : {
+        questions :[{
+            id : 1
+            choices :[{
+                id : 1
+                score : 4
+                weight : 7
+            },
+            {
+                id : 2
+                score : 3
+                weight : 2
+            }]
+        },
+        {
+            id : 2
+            choices :[{
+                id : 1
+                score : 3
+                weight : 5
+            },
+            {
+                id : 2
+                score : 6
+                weight : 1
+            },
+            {
+                id : 3
+                score : 5
+                weight : 8
+            }]
+        }],
+        formula : ""
+    }
+}
