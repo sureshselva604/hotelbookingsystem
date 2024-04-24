@@ -1,0 +1,867 @@
+{
+	"result": [  			
+
+		{
+			"resultQuestionId": 1069,
+			"resultChoicetypeId": 1947,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Single",
+			"resultAnswerValue": "0",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1078,
+			"resultChoicetypeId": 1955,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Single",
+			"resultAnswerValue": "0",
+			"resultScoreValue": 0,
+			"innerResult": [
+				{
+					"resultAnswerType": "textbox",
+					"resultAnswerValue": "100",
+					"InnerQuestionIdFK": 1,
+					"InnerAnsChTypeIdSingle": 0,
+					"innerChoiceValueMulti": []
+				},
+				{
+					"resultAnswerType": "radio",
+					"resultAnswerValue": "Yes",
+					"innerQuestionIdFK": null,
+					"innerAnsChTypeIdSingle": 2,
+					"innerChoiceValueMulti": []
+				},
+				{
+					"resultAnswerType": "radio",
+					"resultAnswerValue": "Left",
+					"innerQuestionIdFK": null,
+					"innerAnsChTypeIdSingle": 5,
+					"innerChoiceValueMulti": []
+				}
+			],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1080,
+			"resultChoicetypeId": 1961,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Single",
+			"resultAnswerValue": "0",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1081,
+			"resultChoicetypeId": 0,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Multiple",
+			"resultAnswerValue": "",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"multiResult": [
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": null,
+					"mulChoicetypeId": 0,
+					"mulScoreValue": 0
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "2nd floor",
+					"mulChoicetypeId": 1963,
+					"mulScoreValue": "0"
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "3rd floor",
+					"mulChoicetypeId": 1964,
+					"mulScoreValue": "0"
+				}
+			],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1082,
+			"resultChoicetypeId": 0,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Multiple",
+			"resultAnswerValue": "",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"multiResult": [
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "1st floor",
+					"mulChoicetypeId": 1962,
+					"mulScoreValue": "0"
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "2nd floor",
+					"mulChoicetypeId": 1963,
+					"mulScoreValue": "0"
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": null,
+					"mulChoicetypeId": 0,
+					"mulScoreValue": 0
+				}
+			],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1109,
+			"resultChoicetypeId": 2040,
+			"resultAnswerId": 0,
+			"resultAnswerType": "single",
+			"resultAnswerValue": "0",
+			"resultScoreValue": 0,
+			"innerResult": [
+				{
+					"resultAnswerType": "textbox",
+					"resultAnswerValue": "56",
+					"InnerQuestionIdFK": 4,
+					"InnerAnsChTypeIdSingle": 0,
+					"innerChoiceValueMulti": []
+				},
+				{
+					"resultAnswerType": "radio",
+					"resultAnswerValue": "Yes",
+					"innerQuestionIdFK": null,
+					"innerAnsChTypeIdSingle": 7,
+					"innerChoiceValueMulti": []
+				},
+				{
+					"resultAnswerType": "radio",
+					"resultAnswerValue": "Left",
+					"innerQuestionIdFK": null,
+					"innerAnsChTypeIdSingle": 5,
+					"innerChoiceValueMulti": []
+				}
+			],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1086,
+			"resultChoicetypeId": 1973,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Single",
+			"resultAnswerValue": "0",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1110,
+			"resultChoicetypeId": 0,
+			"resultAnswerId": 0,
+			"resultAnswerType": "Multiple",
+			"resultAnswerValue": "",
+			"resultScoreValue": 0,
+			"innerResult": [],
+			"multiResult": [
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": null,
+					"mulChoicetypeId": 0,
+					"mulScoreValue": 0
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": null,
+					"mulChoicetypeId": 0,
+					"mulScoreValue": 0
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "Raised seat toilet",
+					"mulChoicetypeId": 2044,
+					"mulScoreValue": "0"
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": "Cane",
+					"mulChoicetypeId": 2045,
+					"mulScoreValue": "0"
+				},
+				{
+					"mulAnswerId": 0,
+					"mulAnswerValue": null,
+					"mulChoicetypeId": 0,
+					"mulScoreValue": 0
+				}
+			],
+			"resultIsSkipped": false
+		},
+		{
+			"resultQuestionId": 1088,
+			"resultChoicetypeId": 0,
+			"resultAnswerId": 0,
+			"resultAnswerType": "textbox",
+			"resultAnswerValue": "",
+			"resultScoreValue": "0",
+			"innerResult": [],
+			"resultIsSkipped": false
+		}
+	],
+	"survey": {
+		"patientSurveyMappingId": 308,
+		"associateHsmId": null,
+		"surveypk": 262,
+		"surveyId": "RC1046",
+		"name": "Tell Us About Your Home",
+		"description": "Help us plan for your return home after surgery",
+		"noOfQuestions": 21,
+		"orgSurveyCode": "RC1046",
+		"surveyPart": "P",
+		"phyScorePattern": null,
+		"funcScorePattern": null,
+		"introduction": "The best place for you to recover after joint replacement surgery is the comfort and privacy of your\r\nown home. While not every patient is able to safely go home a day or two after surgery, we will work\r\nclosely with you and your family to have you safely back in familiar surroundings if at all possible. So\r\nthat we can better understand your home situation, please take a few minutes to complete this brief\r\nhome assessment",
+		"isSummaryScore": false,
+		"introPageSplit": false,
+		"disclaimer": false,
+		"squestion": [
+			{
+				"questionId": 1069,
+				"questionType": "Single",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 414,
+				"seqno": 1,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Single",
+				"disclaimerRequired": null,
+				"question": "<b>Personal Information</b>:<br> Who do you currently <b>live with</b>?*",
+				"serviceLine": null,
+				"qnumber": null,
+				"questionWeight":3,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Alone",
+						"answertypeFK": "414",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1945,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Spouse or Significant Other",
+						"answertypeFK": "414",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1946,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Relative or Friend",
+						"answertypeFK": "414",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1947,
+						"choicetypeFk": null,
+						"sequenceNo": "3",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Caregiver",
+						"answertypeFK": "414",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1948,
+						"choicetypeFk": null,
+						"sequenceNo": "4",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1078,
+				"questionType": "Single",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 418,
+				"seqno": 2,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Single",
+				"disclaimerRequired": null,
+				"question": "<b>Home Environment: Exterior</b>:<br>Are there steps to <b>enter</b> your <b>home</b>?*",
+				"serviceLine": null,
+				"qnumber": null,
+				"questionWeight":2,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Yes",
+						"answertypeFK": "418",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1955,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": [
+							{
+								"id": 1,
+								"name": "How many <b>steps</b> to enter your <b>home</b>?",
+								"type": "textbox",
+								"innerQuestionWeight":5,
+								"innerAnswers": [
+									{
+										"id": 1,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "cmo text value",
+										"skipToInnerQId": 0
+									}
+								]
+							},
+							{
+								"id": 2,
+								"name": "Is there a <b>railing</b> on the stairs to enter your <b>home</b>?",
+								"type": "radio",
+								"innerQuestionWeight":4,
+								"innerAnswers": [
+									{
+										"id": 2,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Yes",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 3,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "No",
+										"skipToInnerQId": 2
+									}
+								]
+							},
+							{
+								"id": 3,
+								"name": "When going up the stairs to enter your home, which <b>side is the railing</b> on?",
+								"type": "radio",
+								"innerQuestionWeight":2,
+								"innerAnswers": [
+									{
+										"id": 4,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Right",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 5,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Left",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 6,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Both",
+										"skipToInnerQId": 0
+									}
+								]
+							}
+						]
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "No",
+						"answertypeFK": "418",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1956,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1080,
+				"questionType": "Single",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 420,
+				"seqno": 3,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Single",
+				"disclaimerRequired": null,
+				"question": "<b>Home Environment: Interior</b>:<br>What floor is your bedroom on?*",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "1st floor",
+						"answertypeFK": "420",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1959,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "2nd floor",
+						"answertypeFK": "420",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1960,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "3rd floor",
+						"answertypeFK": "420",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1961,
+						"choicetypeFk": null,
+						"sequenceNo": "3",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1081,
+				"questionType": "Multiple",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 421,
+				"seqno": 4,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Multiple",
+				"disclaimerRequired": null,
+				"question": "<b>Home Environment: Interior</b>:<br>What floor is your bathroom on? Select <b>all</b> that apply.*",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "1st floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1962,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "2nd floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1963,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "3rd floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1964,
+						"choicetypeFk": null,
+						"sequenceNo": "3",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1082,
+				"questionType": "Multiple",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 421,
+				"seqno": 5,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Multiple",
+				"disclaimerRequired": null,
+				"question": "<b>Home Environment: Interior</b>:<br>What floor is your shower on? Select <b>all</b> that apply.*",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "1st floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1962,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "2nd floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1963,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "3rd floor",
+						"answertypeFK": "421",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1964,
+						"choicetypeFk": null,
+						"sequenceNo": "3",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1109,
+				"questionType": "single",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 534,
+				"seqno": 6,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "single",
+				"disclaimerRequired": null,
+				"question": "Are there steps <b><u>inside</u></b> your home?*",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Yes",
+						"answertypeFK": "534",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2040,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": [
+							{
+								"id": 4,
+								"name": "How many stairs are <b><u>inside</u></b> home?",
+								"type": "textbox",
+								"innerAnswers": [
+									{
+										"id": 1,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "cmo text value",
+										"skipToInnerQId": 0
+									}
+								]
+							},
+							{
+								"id": 5,
+								"name": "Is there a <b>railing</b> on the stairs to enter your <b>home</b>?",
+								"type": "radio",
+								"innerAnswers": [
+									{
+										"id": 7,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Yes",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 8,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "No",
+										"skipToInnerQId": 5
+									}
+								]
+							},
+							{
+								"id": 6,
+								"name": "When going up the stairs to enter your home, which <b>side is the railing</b> on?",
+								"type": "radio",
+								"innerAnswers": [
+									{
+										"id": 4,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Right",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 5,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Left",
+										"skipToInnerQId": 0
+									},
+									{
+										"id": 6,
+										"innerAnsTypeIdFK": null,
+										"innerChoiceType": "Both",
+										"skipToInnerQId": 0
+									}
+								]
+							}
+						]
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "No",
+						"answertypeFK": "534",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2041,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1086,
+				"questionType": "Single",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 425,
+				"seqno": 7,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Single",
+				"disclaimerRequired": null,
+				"question": "<b>Home Environment: Interior</b>:<br>After surgery, can you stay on the <b>1st floor?</b>*",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Yes",
+						"answertypeFK": "425",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1972,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "No",
+						"answertypeFK": "425",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1973,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1110,
+				"questionType": "Multiple",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 535,
+				"seqno": 8,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "Multiple",
+				"disclaimerRequired": null,
+				"question": "What equipment do you <b>currently have available</b> to use?  Select <b>all</b> that apply. *",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Walker",
+						"answertypeFK": "535",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2042,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Crutches",
+						"answertypeFK": "535",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2043,
+						"choicetypeFk": null,
+						"sequenceNo": "2",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Raised seat toilet",
+						"answertypeFK": "535",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2044,
+						"choicetypeFk": null,
+						"sequenceNo": "3",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "Cane",
+						"answertypeFK": "535",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2045,
+						"choicetypeFk": null,
+						"sequenceNo": "4",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					},
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "None",
+						"answertypeFK": "535",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 2046,
+						"choicetypeFk": null,
+						"sequenceNo": "5",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			},
+			{
+				"questionId": 1088,
+				"questionType": "textbox",
+				"surveyFK": "RC1046",
+				"qcfk": null,
+				"answertypeFK": 427,
+				"seqno": 9,
+				"active": "1",
+				"qrbFK": 1,
+				"scoreCategory": null,
+				"onlineQueType": "textbox",
+				"disclaimerRequired": null,
+				"question": "<b>Comments</b>:<br>Additional information, comments, or concerns.",
+				"serviceLine": null,
+				"qnumber": null,
+				"sanswer": [
+					{
+						"scoreId": null,
+						"accessCount": null,
+						"choiceType": "cmo text value",
+						"answertypeFK": "427",
+						"forwardSkipQusId": null,
+						"skipToQId": 0,
+						"scoreValue": "0",
+						"choicetypeId": 1979,
+						"choicetypeFk": null,
+						"sequenceNo": "1",
+						"enableDisable": "enable",
+						"innerQuestion": []
+					}
+				]
+			}
+		]
+	},
+	"patSwfId": 382402,
+	"mode": "P",
+	"surveyTakenBy": 8,
+	"type": 1
+}
